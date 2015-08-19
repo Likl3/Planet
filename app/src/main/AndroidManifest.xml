@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.planet.likunlang.planet" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/android:Theme.Light" >
+        <activity
+            android:name=".LoginPage"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".HomePage"
+            android:label="@string/title_activity_home_page"
+            android:theme="@style/my_title_bar_style" >
+        </activity>
+        <activity
+            android:name="tabpage.TabPersonPage"
+            android:label="@string/title_activity_tab_person_page" >
+        </activity>
+        <activity
+            android:name="tabpage.TabProjectsPage"
+            android:label="@string/title_activity_tab_projects_page" >
+        </activity>
+        <activity
+            android:name="tabpage.TabTeamsPage"
+            android:label="@string/title_activity_tab_teams_page" >
+        </activity>
+        <activity
+            android:name="tabpage.TabSquarePage"
+            android:label="@string/title_activity_tab_square_page" >
+        </activity>
+        <activity
+            android:name=".TaskDetailsPage"
+            android:label="@string/title_activity_mission_details_page"
+            android:theme="@style/my_title_bar_style" >
+        </activity>
+    </application>
+
+</manifest>

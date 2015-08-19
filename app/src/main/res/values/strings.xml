@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Planet</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home_page">HomePage</string>
+    <string name="title_activity_tab_person_page">TabPersonPage</string>
+    <string name="title_activity_tab_projects_page">TabProjectsPage</string>
+    <string name="title_activity_tab_teams_page">TabTeamsPage</string>
+    <string name="title_activity_tab_square_page">TabSquarePage</string>
+
+    <string name="person">个人</string>
+    <string name="projects">项目</string>
+    <string name="teams">团队</string>
+    <string name="square">广场</string>
+    <string name="title_activity_mission_details_page">MissionDetailsPage</string>
+    <string name="title_activity_add_personal_task_page">AddPersonalTaskPage</string>
+</resources>

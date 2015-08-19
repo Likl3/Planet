@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:background="#ffffff">
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/color_marker_shape"
+        android:id="@+id/tab_person_page_list_item_colorMark"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="项目名称"
+        android:textSize="20sp"
+        android:textColor="#af000000"
+        android:id="@+id/tab_person_page_list_item_proj_name"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/tab_person_page_list_item_colorMark" />
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="任务内容，从前往后显示，超出部分省略号代替，参考微信做法"
+        android:textSize="14sp"
+        android:textColor="#66000000"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:id="@+id/tab_person_page_list_item_content"
+        android:layout_marginTop="4dp"
+        android:layout_below="@+id/tab_person_page_list_item_proj_name"
+        android:layout_alignStart="@+id/tab_person_page_list_item_proj_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8月20日"
+        android:textSize="15sp"
+        android:textColor="#99000000"
+        android:id="@+id/tab_person_page_list_item_time"
+        android:layout_alignTop="@+id/tab_person_page_list_item_proj_name"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
