@@ -2,6 +2,7 @@ package com.planet.likunlang.planet;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -15,6 +16,9 @@ import android.widget.RadioButton;
 import android.widget.TabHost;
 import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import tabpage.TabPersonPage;
 import tabpage.TabProjectsPage;
 import tabpage.TabSquarePage;
@@ -26,7 +30,7 @@ public class HomePage extends TabActivity implements CompoundButton.OnCheckedCha
     private TabHost tabHost;
     private ImageButton btn_add, btn_other;
     private PopupWindow myPopupWindow;
-     Button btn_add_task, btn_add_proj;
+    private Button btn_add_task, btn_add_proj;
     View customView;
 
     @Override
@@ -65,43 +69,34 @@ public class HomePage extends TabActivity implements CompoundButton.OnCheckedCha
         customView = inflater.inflate(R.layout.popview_items, null);
         // 创建PopupWindow实例,200,150分别是宽度和高度
         myPopupWindow = new PopupWindow(customView, 250, 280);
-        btn_add_task = (Button) findViewById(R.id.btn_add_task);
-//        btn_add_task.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                  startActivity(new Intent(HomePage.this,HomePage.class));
-//            }
-//        });
+        myPopupWindow.setFocusable(true);
+        myPopupWindow.setOutsideTouchable(true);
+        myPopupWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));
+
+        btn_add_task = (Button) customView.findViewById(R.id.btn_add_task);
+        btn_add_task.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("type", "");
+                bundle.putString("proj_name", "");
+                bundle.putString("content", "");
+                bundle.putString("start_time", "");
+                bundle.putString("end_time", "");
+
+                Intent intent = new Intent(HomePage.this,
+                        TaskDetailsPage.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
 
         /////////////////////////
-        this.btn_add = (ImageButton) findViewById(R.id.btn_add);
+        btn_add = (ImageButton) findViewById(R.id.btn_add);
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (myPopupWindow != null && myPopupWindow.isShowing()) {
-                    myPopupWindow.dismiss();
-                  Toast.makeText(HomePage.this, "添加，未完成", Toast.LENGTH_SHORT).show();
-                } else {
-//                    initialPopupWindow();
-//                    customView = getLayoutInflater().inflate(R.layout.popview_items,
-//                            null, false);
-                    myPopupWindow = new PopupWindow(customView, 250, 280);
-                    myPopupWindow.setFocusable(true);
-                    myPopupWindow.setOutsideTouchable(true);
-                    customView.setOnTouchListener(new View.OnTouchListener() {
-
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-                            if (myPopupWindow != null && myPopupWindow.isShowing()) {
-                                myPopupWindow.dismiss();
-                                myPopupWindow = null;
-                            }
-                            return false;
-                        }
-                    });
-                    myPopupWindow.showAsDropDown(v, -10, 0);
-                }
-
+                myPopupWindow.showAsDropDown(v, -10, 0);
             }
         });
     }

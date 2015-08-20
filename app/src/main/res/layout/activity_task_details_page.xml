@@ -15,7 +15,7 @@
         android:ems="10"
         android:hint="输入任务内容"
         android:gravity="top"
-        android:id="@+id/editText_target_details"
+        android:id="@+id/edit_text_target_details"
         android:background="@drawable/task_details_view_shape"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff5f4f3"
-        android:layout_below="@+id/editText_target_details"
+        android:layout_below="@+id/edit_text_target_details"
         android:layout_centerHorizontal="true">
 
         <view.MyView
@@ -65,7 +65,7 @@
                     android:ems="10"
                     android:hint="date"
                     android:background="@drawable/task_details_view_shape"
-                    android:id="@+id/editText_date"
+                    android:id="@+id/edit_text_date"
                     android:layout_weight="1" />
 
                 <EditText
@@ -74,7 +74,7 @@
                     android:inputType="time"
                     android:ems="10"
                     android:hint="time"
-                    android:id="@+id/editText_time"
+                    android:id="@+id/edit_text_time"
                     android:background="@drawable/task_details_view_shape"
                     android:layout_weight="1" />
             </LinearLayout>

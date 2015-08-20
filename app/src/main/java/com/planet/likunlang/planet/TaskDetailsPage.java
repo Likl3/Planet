@@ -8,6 +8,7 @@ import android.os.Message;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -17,10 +18,15 @@ import tabpage.TabPersonPage;
 
 
 public class TaskDetailsPage extends Activity implements View.OnClickListener {
+    private String type;
     private String proj_name;
     private String content;
-    private String time;
-    private TextView text;
+    private String start_time;
+    private String end_time;
+
+    private EditText edt_content;
+    private TextView txt_start_time, txt_end_time;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
@@ -29,9 +35,7 @@ public class TaskDetailsPage extends Activity implements View.OnClickListener {
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.task_detail_title_bar_style);
 
         GetIntent();
-//        text = (TextView)findViewById(R.id.details_text);
-//        text.setText(proj_name + "\n" + content + "\n" + time);
-
+        //本页面所有按钮在此统一声明，下面统一监听
         ((ImageButton)findViewById(R.id.btn_back)).setOnClickListener(this);
         ((ImageButton)findViewById(R.id.btn_delete)).setOnClickListener(this);
         ((Button)findViewById(R.id.btn_ok)).setOnClickListener(this);
@@ -60,9 +64,28 @@ public class TaskDetailsPage extends Activity implements View.OnClickListener {
     private void GetIntent()  {
         Bundle bundle = this.getIntent().getExtras();
         //iconURL = bundle.getString("URL");
-        proj_name = bundle.getString("proj_name",  "无法显示");
-        content = bundle.getString("content", "无");
-        time = bundle.getString("time", "无");
+        type = bundle.getString("type", "");
+        proj_name = bundle.getString("proj_name",  "");
+        content = bundle.getString("content", "");
+        start_time = bundle.getString("start_time", "");
+        end_time = bundle.getString("end_time", "");
+
+        edt_content = (EditText)findViewById(R.id.edit_text_target_details);
+        txt_start_time = (TextView)findViewById(R.id.edit_text_date);
+        txt_end_time = (TextView)findViewById(R.id.edit_text_time);
+
+        if(!type.equals("") && !content.equals("")) {
+            edt_content.setText(content);
+            txt_start_time.setText(start_time);
+            txt_end_time.setText(end_time);
+
+            edt_content.setFocusable(false);
+//            edt_content.isFocusableInTouchMode();
+
+            if(type.equals("public")) {
+                edt_content.setEnabled(false);
+            }
+        }
     }
 
 }
